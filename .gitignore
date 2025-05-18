@@ -21,5 +21,10 @@
 go.work
 go.work.sum
 
+/bin/
+.idea
+logs
+logs*
+
 # env file
 .env
