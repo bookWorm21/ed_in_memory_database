@@ -9,7 +9,7 @@ import (
 )
 
 var (
-	queryToCommand = map[string]entity.Type{
+	queryToCommand = map[string]entity.CommandType{
 		"GET": entity.CommandTypeGet,
 		"SET": entity.CommandTypeSet,
 		"DEL": entity.CommandTypeDelete,
@@ -28,7 +28,7 @@ func ParseQuery(rawQuery string) (entity.Command, error) {
 
 	commandType, ok := queryToCommand[commandStr]
 	if !ok {
-		return entity.Command{}, fmt.Errorf("%s: unknown command", commandStr)
+		return entity.Command{}, fmt.Errorf("\"%s\" unknown command", commandStr)
 	}
 
 	return entity.Make(commandType, tokens[1:]...)

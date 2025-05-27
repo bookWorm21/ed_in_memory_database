@@ -42,9 +42,9 @@ func (c Cli) Run(ctx context.Context) {
 
 		response, err := c.databaseService.Execute(ctx, request)
 		if err != nil {
-			fmt.Println(err)
+			fmt.Println(err.Error())
 			continue
 		}
-		fmt.Println(response)
+		fmt.Println(response.Message())
 	}
 }

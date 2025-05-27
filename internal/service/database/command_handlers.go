@@ -23,7 +23,7 @@ func (d Database) executeGet(ctx context.Context, command entity.Command) (Execu
 
 	if errors.Is(err, storage_errors.ErrNotFound) {
 		return ExecuteResponse{
-			message: fmt.Sprintf("key %s does not exist", key),
+			message: fmt.Sprintf("key \"%s\" does not exist", key),
 		}, nil
 	}
 
@@ -35,7 +35,7 @@ func (d Database) executeGet(ctx context.Context, command entity.Command) (Execu
 	}
 
 	return ExecuteResponse{
-		message: fmt.Sprintf("value: %s", val),
+		message: fmt.Sprintf("value: \"%s\"", val),
 	}, nil
 }
 

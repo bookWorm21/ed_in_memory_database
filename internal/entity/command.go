@@ -5,11 +5,11 @@ import (
 	"strconv"
 )
 
-type Type int
+type CommandType int
 
 const (
-	// TypeUnknown -
-	TypeUnknown Type = iota
+	// CommandTypeUnknown -
+	CommandTypeUnknown CommandType = iota
 	// CommandTypeGet -
 	CommandTypeGet
 	// CommandTypeSet -
@@ -19,7 +19,7 @@ const (
 )
 
 // CommandTypeToArgsCount - количество аргументов по типу команды необходимых для выполнения
-var CommandTypeToArgsCount = map[Type]int{
+var CommandTypeToArgsCount = map[CommandType]int{
 	CommandTypeGet:    1,
 	CommandTypeSet:    2,
 	CommandTypeDelete: 1,
@@ -31,13 +31,13 @@ var (
 )
 
 type Command struct {
-	commandType Type
+	commandType CommandType
 	args        []string
 }
 
 // Make - конструирует Command
-func Make(commandType Type, args ...string) (Command, error) {
-	if commandType == TypeUnknown {
+func Make(commandType CommandType, args ...string) (Command, error) {
+	if commandType == CommandTypeUnknown {
 		return Command{}, ErrInvalidCommandType
 	}
 
@@ -52,7 +52,7 @@ func Make(commandType Type, args ...string) (Command, error) {
 	}, nil
 }
 
-func (c Command) Type() Type {
+func (c Command) Type() CommandType {
 	return c.commandType
 }
 
