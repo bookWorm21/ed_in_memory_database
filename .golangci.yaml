@@ -72,6 +72,9 @@ linters:
     - nosprintfhostport
 issues:
   exclude-use-default: false
+  exclude:
+    - should have a package comment
+    - don't use an underscore in package name
   exclude-dirs:
     - bin
     - vendor

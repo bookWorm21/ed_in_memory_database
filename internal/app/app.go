@@ -13,11 +13,13 @@ import (
 	"ed_in_memory_database/pkg/logger"
 )
 
+// App -
 type App struct {
 	logger logger.Logger
 	cli    cli.Cli
 }
 
+// NewApp -
 func NewApp(_ config.Config, logger logger.Logger) (*App, error) {
 	engine := in_memory.MakeEngine()
 	compute := compute_component.Make()
@@ -39,6 +41,7 @@ func NewApp(_ config.Config, logger logger.Logger) (*App, error) {
 	}, nil
 }
 
+// Run -
 func (a *App) Run(ctx context.Context) error {
 	a.cli.Run(ctx)
 	return nil

@@ -1,4 +1,4 @@
-package parser
+package compute
 
 import (
 	"testing"
@@ -8,7 +8,7 @@ import (
 	"github.com/stretchr/testify/require"
 )
 
-func TestParseQuery(t *testing.T) {
+func Test(t *testing.T) {
 	t.Parallel()
 
 	tests := []struct {
@@ -69,7 +69,9 @@ func TestParseQuery(t *testing.T) {
 		t.Run(tt.name, func(t *testing.T) {
 			t.Parallel()
 
-			command, err := ParseQuery(tt.query)
+			compute := Make()
+
+			command, err := compute.ParseQuery(tt.query)
 			if len(tt.expectedErr) > 0 {
 				require.Error(t, err)
 				require.Equal(t, tt.expectedErr, err.Error())

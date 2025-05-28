@@ -17,10 +17,12 @@ type (
 	}
 )
 
+// Cli -
 type Cli struct {
 	databaseService databaseService
 }
 
+// Make -
 func Make(databaseService databaseService) (Cli, error) {
 	if databaseService == nil {
 		return Cli{}, errors.New("database service is nil")
@@ -30,6 +32,7 @@ func Make(databaseService databaseService) (Cli, error) {
 	}, nil
 }
 
+// Run -
 func (c Cli) Run(ctx context.Context) {
 	reader := bufio.NewReader(os.Stdin)
 	for {

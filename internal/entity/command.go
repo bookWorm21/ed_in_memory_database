@@ -5,6 +5,7 @@ import (
 	"strconv"
 )
 
+// CommandType -
 type CommandType int
 
 const (
@@ -18,18 +19,21 @@ const (
 	CommandTypeDelete
 )
 
-// CommandTypeToArgsCount - количество аргументов по типу команды необходимых для выполнения
-var CommandTypeToArgsCount = map[CommandType]int{
+// commandTypeToArgsCount - количество аргументов по типу команды необходимых для выполнения
+var commandTypeToArgsCount = map[CommandType]int{
 	CommandTypeGet:    1,
 	CommandTypeSet:    2,
 	CommandTypeDelete: 1,
 }
 
 var (
+	// ErrIncorrectNumberOfArguments -
 	ErrIncorrectNumberOfArguments = fmt.Errorf("incorrect number of arguments")
-	ErrInvalidCommandType         = fmt.Errorf("invalid command type")
+	// ErrInvalidCommandType -
+	ErrInvalidCommandType = fmt.Errorf("invalid command type")
 )
 
+// Command -
 type Command struct {
 	commandType CommandType
 	args        []string
@@ -41,7 +45,7 @@ func Make(commandType CommandType, args ...string) (Command, error) {
 		return Command{}, ErrInvalidCommandType
 	}
 
-	needArgsCount := CommandTypeToArgsCount[commandType]
+	needArgsCount := commandTypeToArgsCount[commandType]
 	if needArgsCount != len(args) {
 		return Command{}, fmt.Errorf("%w: awaiting %s", ErrIncorrectNumberOfArguments, strconv.Itoa(needArgsCount))
 	}
@@ -52,10 +56,12 @@ func Make(commandType CommandType, args ...string) (Command, error) {
 	}, nil
 }
 
+// Type -
 func (c Command) Type() CommandType {
 	return c.commandType
 }
 
+// Arg -
 func (c Command) Arg(number int) (string, error) {
 	if number < 0 || number >= len(c.args) {
 		return "", ErrIncorrectNumberOfArguments

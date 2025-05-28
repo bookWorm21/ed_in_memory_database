@@ -9,6 +9,7 @@ type ExecuteResponse struct {
 	message string
 }
 
+// Message -
 func (r ExecuteResponse) Message() string {
 	return r.message
 }

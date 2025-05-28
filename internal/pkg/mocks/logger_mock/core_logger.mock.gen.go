@@ -2,7 +2,7 @@
 
 package logger_mock
 
-//go:generate minimock -i ed_in_memory_database/internal/pkg/mocks/logger_mock.LoggerAlias -o core_logger.mock.gen.go -n LoggerAliasMock -p logger_mock
+//go:generate minimock -i ed_in_memory_database/internal/pkg/mocks/logger_mock.loggerAlias -o core_logger.mock.gen.go -n LoggerAliasMock -p logger_mock
 
 import (
 	"ed_in_memory_database/pkg/logger"
@@ -13,7 +13,7 @@ import (
 	"github.com/gojuno/minimock/v3"
 )
 
-// LoggerAliasMock implements LoggerAlias
+// LoggerAliasMock implements loggerAlias
 type LoggerAliasMock struct {
 	t          minimock.Tester
 	finishOnce sync.Once
@@ -68,7 +68,7 @@ type LoggerAliasMock struct {
 	WithfMock          mLoggerAliasMockWithf
 }
 
-// NewLoggerAliasMock returns a mock for LoggerAlias
+// NewLoggerAliasMock returns a mock for loggerAlias
 func NewLoggerAliasMock(t minimock.Tester) *LoggerAliasMock {
 	m := &LoggerAliasMock{t: t}
 
@@ -114,7 +114,7 @@ type mLoggerAliasMockDebugf struct {
 	expectedInvocationsOrigin string
 }
 
-// LoggerAliasMockDebugfExpectation specifies expectation struct of the LoggerAlias.Debugf
+// LoggerAliasMockDebugfExpectation specifies expectation struct of the loggerAlias.Debugf
 type LoggerAliasMockDebugfExpectation struct {
 	mock               *LoggerAliasMock
 	params             *LoggerAliasMockDebugfParams
@@ -125,19 +125,19 @@ type LoggerAliasMockDebugfExpectation struct {
 	Counter      uint64
 }
 
-// LoggerAliasMockDebugfParams contains parameters of the LoggerAlias.Debugf
+// LoggerAliasMockDebugfParams contains parameters of the loggerAlias.Debugf
 type LoggerAliasMockDebugfParams struct {
 	message string
 	args    []any
 }
 
-// LoggerAliasMockDebugfParamPtrs contains pointers to parameters of the LoggerAlias.Debugf
+// LoggerAliasMockDebugfParamPtrs contains pointers to parameters of the loggerAlias.Debugf
 type LoggerAliasMockDebugfParamPtrs struct {
 	message *string
 	args    *[]any
 }
 
-// LoggerAliasMockDebugfOrigins contains origins of expectations of the LoggerAlias.Debugf
+// LoggerAliasMockDebugfOrigins contains origins of expectations of the loggerAlias.Debugf
 type LoggerAliasMockDebugfExpectationOrigins struct {
 	origin        string
 	originMessage string
@@ -154,7 +154,7 @@ func (mmDebugf *mLoggerAliasMockDebugf) Optional() *mLoggerAliasMockDebugf {
 	return mmDebugf
 }
 
-// Expect sets up expected params for LoggerAlias.Debugf
+// Expect sets up expected params for loggerAlias.Debugf
 func (mmDebugf *mLoggerAliasMockDebugf) Expect(message string, args ...any) *mLoggerAliasMockDebugf {
 	if mmDebugf.mock.funcDebugf != nil {
 		mmDebugf.mock.t.Fatalf("LoggerAliasMock.Debugf mock is already set by Set")
@@ -179,7 +179,7 @@ func (mmDebugf *mLoggerAliasMockDebugf) Expect(message string, args ...any) *mLo
 	return mmDebugf
 }
 
-// ExpectMessageParam1 sets up expected param message for LoggerAlias.Debugf
+// ExpectMessageParam1 sets up expected param message for loggerAlias.Debugf
 func (mmDebugf *mLoggerAliasMockDebugf) ExpectMessageParam1(message string) *mLoggerAliasMockDebugf {
 	if mmDebugf.mock.funcDebugf != nil {
 		mmDebugf.mock.t.Fatalf("LoggerAliasMock.Debugf mock is already set by Set")
@@ -202,7 +202,7 @@ func (mmDebugf *mLoggerAliasMockDebugf) ExpectMessageParam1(message string) *mLo
 	return mmDebugf
 }
 
-// ExpectArgsParam2 sets up expected param args for LoggerAlias.Debugf
+// ExpectArgsParam2 sets up expected param args for loggerAlias.Debugf
 func (mmDebugf *mLoggerAliasMockDebugf) ExpectArgsParam2(args ...any) *mLoggerAliasMockDebugf {
 	if mmDebugf.mock.funcDebugf != nil {
 		mmDebugf.mock.t.Fatalf("LoggerAliasMock.Debugf mock is already set by Set")
@@ -225,7 +225,7 @@ func (mmDebugf *mLoggerAliasMockDebugf) ExpectArgsParam2(args ...any) *mLoggerAl
 	return mmDebugf
 }
 
-// Inspect accepts an inspector function that has same arguments as the LoggerAlias.Debugf
+// Inspect accepts an inspector function that has same arguments as the loggerAlias.Debugf
 func (mmDebugf *mLoggerAliasMockDebugf) Inspect(f func(message string, args ...any)) *mLoggerAliasMockDebugf {
 	if mmDebugf.mock.inspectFuncDebugf != nil {
 		mmDebugf.mock.t.Fatalf("Inspect function is already set for LoggerAliasMock.Debugf")
@@ -236,7 +236,7 @@ func (mmDebugf *mLoggerAliasMockDebugf) Inspect(f func(message string, args ...a
 	return mmDebugf
 }
 
-// Return sets up results that will be returned by LoggerAlias.Debugf
+// Return sets up results that will be returned by loggerAlias.Debugf
 func (mmDebugf *mLoggerAliasMockDebugf) Return() *LoggerAliasMock {
 	if mmDebugf.mock.funcDebugf != nil {
 		mmDebugf.mock.t.Fatalf("LoggerAliasMock.Debugf mock is already set by Set")
@@ -250,14 +250,14 @@ func (mmDebugf *mLoggerAliasMockDebugf) Return() *LoggerAliasMock {
 	return mmDebugf.mock
 }
 
-// Set uses given function f to mock the LoggerAlias.Debugf method
+// Set uses given function f to mock the loggerAlias.Debugf method
 func (mmDebugf *mLoggerAliasMockDebugf) Set(f func(message string, args ...any)) *LoggerAliasMock {
 	if mmDebugf.defaultExpectation != nil {
-		mmDebugf.mock.t.Fatalf("Default expectation is already set for the LoggerAlias.Debugf method")
+		mmDebugf.mock.t.Fatalf("Default expectation is already set for the loggerAlias.Debugf method")
 	}
 
 	if len(mmDebugf.expectations) > 0 {
-		mmDebugf.mock.t.Fatalf("Some expectations are already set for the LoggerAlias.Debugf method")
+		mmDebugf.mock.t.Fatalf("Some expectations are already set for the loggerAlias.Debugf method")
 	}
 
 	mmDebugf.mock.funcDebugf = f
@@ -265,7 +265,7 @@ func (mmDebugf *mLoggerAliasMockDebugf) Set(f func(message string, args ...any))
 	return mmDebugf.mock
 }
 
-// When sets expectation for the LoggerAlias.Debugf which will trigger the result defined by the following
+// When sets expectation for the loggerAlias.Debugf which will trigger the result defined by the following
 // Then helper
 func (mmDebugf *mLoggerAliasMockDebugf) When(message string, args ...any) *LoggerAliasMockDebugfExpectation {
 	if mmDebugf.mock.funcDebugf != nil {
@@ -281,13 +281,13 @@ func (mmDebugf *mLoggerAliasMockDebugf) When(message string, args ...any) *Logge
 	return expectation
 }
 
-// Then sets up LoggerAlias.Debugf return parameters for the expectation previously defined by the When method
+// Then sets up loggerAlias.Debugf return parameters for the expectation previously defined by the When method
 
 func (e *LoggerAliasMockDebugfExpectation) Then() *LoggerAliasMock {
 	return e.mock
 }
 
-// Times sets number of times LoggerAlias.Debugf should be invoked
+// Times sets number of times loggerAlias.Debugf should be invoked
 func (mmDebugf *mLoggerAliasMockDebugf) Times(n uint64) *mLoggerAliasMockDebugf {
 	if n == 0 {
 		mmDebugf.mock.t.Fatalf("Times of LoggerAliasMock.Debugf mock can not be zero")
@@ -308,7 +308,7 @@ func (mmDebugf *mLoggerAliasMockDebugf) invocationsDone() bool {
 	return totalInvocations > 0 && (expectedInvocations == 0 || expectedInvocations == totalInvocations)
 }
 
-// Debugf implements LoggerAlias
+// Debugf implements loggerAlias
 func (mmDebugf *LoggerAliasMock) Debugf(message string, args ...any) {
 	mm_atomic.AddUint64(&mmDebugf.beforeDebugfCounter, 1)
 	defer mm_atomic.AddUint64(&mmDebugf.afterDebugfCounter, 1)
@@ -449,7 +449,7 @@ type mLoggerAliasMockErrorf struct {
 	expectedInvocationsOrigin string
 }
 
-// LoggerAliasMockErrorfExpectation specifies expectation struct of the LoggerAlias.Errorf
+// LoggerAliasMockErrorfExpectation specifies expectation struct of the loggerAlias.Errorf
 type LoggerAliasMockErrorfExpectation struct {
 	mock               *LoggerAliasMock
 	params             *LoggerAliasMockErrorfParams
@@ -460,19 +460,19 @@ type LoggerAliasMockErrorfExpectation struct {
 	Counter      uint64
 }
 
-// LoggerAliasMockErrorfParams contains parameters of the LoggerAlias.Errorf
+// LoggerAliasMockErrorfParams contains parameters of the loggerAlias.Errorf
 type LoggerAliasMockErrorfParams struct {
 	message string
 	args    []any
 }
 
-// LoggerAliasMockErrorfParamPtrs contains pointers to parameters of the LoggerAlias.Errorf
+// LoggerAliasMockErrorfParamPtrs contains pointers to parameters of the loggerAlias.Errorf
 type LoggerAliasMockErrorfParamPtrs struct {
 	message *string
 	args    *[]any
 }
 
-// LoggerAliasMockErrorfOrigins contains origins of expectations of the LoggerAlias.Errorf
+// LoggerAliasMockErrorfOrigins contains origins of expectations of the loggerAlias.Errorf
 type LoggerAliasMockErrorfExpectationOrigins struct {
 	origin        string
 	originMessage string
@@ -489,7 +489,7 @@ func (mmErrorf *mLoggerAliasMockErrorf) Optional() *mLoggerAliasMockErrorf {
 	return mmErrorf
 }
 
-// Expect sets up expected params for LoggerAlias.Errorf
+// Expect sets up expected params for loggerAlias.Errorf
 func (mmErrorf *mLoggerAliasMockErrorf) Expect(message string, args ...any) *mLoggerAliasMockErrorf {
 	if mmErrorf.mock.funcErrorf != nil {
 		mmErrorf.mock.t.Fatalf("LoggerAliasMock.Errorf mock is already set by Set")
@@ -514,7 +514,7 @@ func (mmErrorf *mLoggerAliasMockErrorf) Expect(message string, args ...any) *mLo
 	return mmErrorf
 }
 
-// ExpectMessageParam1 sets up expected param message for LoggerAlias.Errorf
+// ExpectMessageParam1 sets up expected param message for loggerAlias.Errorf
 func (mmErrorf *mLoggerAliasMockErrorf) ExpectMessageParam1(message string) *mLoggerAliasMockErrorf {
 	if mmErrorf.mock.funcErrorf != nil {
 		mmErrorf.mock.t.Fatalf("LoggerAliasMock.Errorf mock is already set by Set")
@@ -537,7 +537,7 @@ func (mmErrorf *mLoggerAliasMockErrorf) ExpectMessageParam1(message string) *mLo
 	return mmErrorf
 }
 
-// ExpectArgsParam2 sets up expected param args for LoggerAlias.Errorf
+// ExpectArgsParam2 sets up expected param args for loggerAlias.Errorf
 func (mmErrorf *mLoggerAliasMockErrorf) ExpectArgsParam2(args ...any) *mLoggerAliasMockErrorf {
 	if mmErrorf.mock.funcErrorf != nil {
 		mmErrorf.mock.t.Fatalf("LoggerAliasMock.Errorf mock is already set by Set")
@@ -560,7 +560,7 @@ func (mmErrorf *mLoggerAliasMockErrorf) ExpectArgsParam2(args ...any) *mLoggerAl
 	return mmErrorf
 }
 
-// Inspect accepts an inspector function that has same arguments as the LoggerAlias.Errorf
+// Inspect accepts an inspector function that has same arguments as the loggerAlias.Errorf
 func (mmErrorf *mLoggerAliasMockErrorf) Inspect(f func(message string, args ...any)) *mLoggerAliasMockErrorf {
 	if mmErrorf.mock.inspectFuncErrorf != nil {
 		mmErrorf.mock.t.Fatalf("Inspect function is already set for LoggerAliasMock.Errorf")
@@ -571,7 +571,7 @@ func (mmErrorf *mLoggerAliasMockErrorf) Inspect(f func(message string, args ...a
 	return mmErrorf
 }
 
-// Return sets up results that will be returned by LoggerAlias.Errorf
+// Return sets up results that will be returned by loggerAlias.Errorf
 func (mmErrorf *mLoggerAliasMockErrorf) Return() *LoggerAliasMock {
 	if mmErrorf.mock.funcErrorf != nil {
 		mmErrorf.mock.t.Fatalf("LoggerAliasMock.Errorf mock is already set by Set")
@@ -585,14 +585,14 @@ func (mmErrorf *mLoggerAliasMockErrorf) Return() *LoggerAliasMock {
 	return mmErrorf.mock
 }
 
-// Set uses given function f to mock the LoggerAlias.Errorf method
+// Set uses given function f to mock the loggerAlias.Errorf method
 func (mmErrorf *mLoggerAliasMockErrorf) Set(f func(message string, args ...any)) *LoggerAliasMock {
 	if mmErrorf.defaultExpectation != nil {
-		mmErrorf.mock.t.Fatalf("Default expectation is already set for the LoggerAlias.Errorf method")
+		mmErrorf.mock.t.Fatalf("Default expectation is already set for the loggerAlias.Errorf method")
 	}
 
 	if len(mmErrorf.expectations) > 0 {
-		mmErrorf.mock.t.Fatalf("Some expectations are already set for the LoggerAlias.Errorf method")
+		mmErrorf.mock.t.Fatalf("Some expectations are already set for the loggerAlias.Errorf method")
 	}
 
 	mmErrorf.mock.funcErrorf = f
@@ -600,7 +600,7 @@ func (mmErrorf *mLoggerAliasMockErrorf) Set(f func(message string, args ...any))
 	return mmErrorf.mock
 }
 
-// When sets expectation for the LoggerAlias.Errorf which will trigger the result defined by the following
+// When sets expectation for the loggerAlias.Errorf which will trigger the result defined by the following
 // Then helper
 func (mmErrorf *mLoggerAliasMockErrorf) When(message string, args ...any) *LoggerAliasMockErrorfExpectation {
 	if mmErrorf.mock.funcErrorf != nil {
@@ -616,13 +616,13 @@ func (mmErrorf *mLoggerAliasMockErrorf) When(message string, args ...any) *Logge
 	return expectation
 }
 
-// Then sets up LoggerAlias.Errorf return parameters for the expectation previously defined by the When method
+// Then sets up loggerAlias.Errorf return parameters for the expectation previously defined by the When method
 
 func (e *LoggerAliasMockErrorfExpectation) Then() *LoggerAliasMock {
 	return e.mock
 }
 
-// Times sets number of times LoggerAlias.Errorf should be invoked
+// Times sets number of times loggerAlias.Errorf should be invoked
 func (mmErrorf *mLoggerAliasMockErrorf) Times(n uint64) *mLoggerAliasMockErrorf {
 	if n == 0 {
 		mmErrorf.mock.t.Fatalf("Times of LoggerAliasMock.Errorf mock can not be zero")
@@ -643,7 +643,7 @@ func (mmErrorf *mLoggerAliasMockErrorf) invocationsDone() bool {
 	return totalInvocations > 0 && (expectedInvocations == 0 || expectedInvocations == totalInvocations)
 }
 
-// Errorf implements LoggerAlias
+// Errorf implements loggerAlias
 func (mmErrorf *LoggerAliasMock) Errorf(message string, args ...any) {
 	mm_atomic.AddUint64(&mmErrorf.beforeErrorfCounter, 1)
 	defer mm_atomic.AddUint64(&mmErrorf.afterErrorfCounter, 1)
@@ -784,7 +784,7 @@ type mLoggerAliasMockFatalf struct {
 	expectedInvocationsOrigin string
 }
 
-// LoggerAliasMockFatalfExpectation specifies expectation struct of the LoggerAlias.Fatalf
+// LoggerAliasMockFatalfExpectation specifies expectation struct of the loggerAlias.Fatalf
 type LoggerAliasMockFatalfExpectation struct {
 	mock               *LoggerAliasMock
 	params             *LoggerAliasMockFatalfParams
@@ -795,19 +795,19 @@ type LoggerAliasMockFatalfExpectation struct {
 	Counter      uint64
 }
 
-// LoggerAliasMockFatalfParams contains parameters of the LoggerAlias.Fatalf
+// LoggerAliasMockFatalfParams contains parameters of the loggerAlias.Fatalf
 type LoggerAliasMockFatalfParams struct {
 	message string
 	args    []any
 }
 
-// LoggerAliasMockFatalfParamPtrs contains pointers to parameters of the LoggerAlias.Fatalf
+// LoggerAliasMockFatalfParamPtrs contains pointers to parameters of the loggerAlias.Fatalf
 type LoggerAliasMockFatalfParamPtrs struct {
 	message *string
 	args    *[]any
 }
 
-// LoggerAliasMockFatalfOrigins contains origins of expectations of the LoggerAlias.Fatalf
+// LoggerAliasMockFatalfOrigins contains origins of expectations of the loggerAlias.Fatalf
 type LoggerAliasMockFatalfExpectationOrigins struct {
 	origin        string
 	originMessage string
@@ -824,7 +824,7 @@ func (mmFatalf *mLoggerAliasMockFatalf) Optional() *mLoggerAliasMockFatalf {
 	return mmFatalf
 }
 
-// Expect sets up expected params for LoggerAlias.Fatalf
+// Expect sets up expected params for loggerAlias.Fatalf
 func (mmFatalf *mLoggerAliasMockFatalf) Expect(message string, args ...any) *mLoggerAliasMockFatalf {
 	if mmFatalf.mock.funcFatalf != nil {
 		mmFatalf.mock.t.Fatalf("LoggerAliasMock.Fatalf mock is already set by Set")
@@ -849,7 +849,7 @@ func (mmFatalf *mLoggerAliasMockFatalf) Expect(message string, args ...any) *mLo
 	return mmFatalf
 }
 
-// ExpectMessageParam1 sets up expected param message for LoggerAlias.Fatalf
+// ExpectMessageParam1 sets up expected param message for loggerAlias.Fatalf
 func (mmFatalf *mLoggerAliasMockFatalf) ExpectMessageParam1(message string) *mLoggerAliasMockFatalf {
 	if mmFatalf.mock.funcFatalf != nil {
 		mmFatalf.mock.t.Fatalf("LoggerAliasMock.Fatalf mock is already set by Set")
@@ -872,7 +872,7 @@ func (mmFatalf *mLoggerAliasMockFatalf) ExpectMessageParam1(message string) *mLo
 	return mmFatalf
 }
 
-// ExpectArgsParam2 sets up expected param args for LoggerAlias.Fatalf
+// ExpectArgsParam2 sets up expected param args for loggerAlias.Fatalf
 func (mmFatalf *mLoggerAliasMockFatalf) ExpectArgsParam2(args ...any) *mLoggerAliasMockFatalf {
 	if mmFatalf.mock.funcFatalf != nil {
 		mmFatalf.mock.t.Fatalf("LoggerAliasMock.Fatalf mock is already set by Set")
@@ -895,7 +895,7 @@ func (mmFatalf *mLoggerAliasMockFatalf) ExpectArgsParam2(args ...any) *mLoggerAl
 	return mmFatalf
 }
 
-// Inspect accepts an inspector function that has same arguments as the LoggerAlias.Fatalf
+// Inspect accepts an inspector function that has same arguments as the loggerAlias.Fatalf
 func (mmFatalf *mLoggerAliasMockFatalf) Inspect(f func(message string, args ...any)) *mLoggerAliasMockFatalf {
 	if mmFatalf.mock.inspectFuncFatalf != nil {
 		mmFatalf.mock.t.Fatalf("Inspect function is already set for LoggerAliasMock.Fatalf")
@@ -906,7 +906,7 @@ func (mmFatalf *mLoggerAliasMockFatalf) Inspect(f func(message string, args ...a
 	return mmFatalf
 }
 
-// Return sets up results that will be returned by LoggerAlias.Fatalf
+// Return sets up results that will be returned by loggerAlias.Fatalf
 func (mmFatalf *mLoggerAliasMockFatalf) Return() *LoggerAliasMock {
 	if mmFatalf.mock.funcFatalf != nil {
 		mmFatalf.mock.t.Fatalf("LoggerAliasMock.Fatalf mock is already set by Set")
@@ -920,14 +920,14 @@ func (mmFatalf *mLoggerAliasMockFatalf) Return() *LoggerAliasMock {
 	return mmFatalf.mock
 }
 
-// Set uses given function f to mock the LoggerAlias.Fatalf method
+// Set uses given function f to mock the loggerAlias.Fatalf method
 func (mmFatalf *mLoggerAliasMockFatalf) Set(f func(message string, args ...any)) *LoggerAliasMock {
 	if mmFatalf.defaultExpectation != nil {
-		mmFatalf.mock.t.Fatalf("Default expectation is already set for the LoggerAlias.Fatalf method")
+		mmFatalf.mock.t.Fatalf("Default expectation is already set for the loggerAlias.Fatalf method")
 	}
 
 	if len(mmFatalf.expectations) > 0 {
-		mmFatalf.mock.t.Fatalf("Some expectations are already set for the LoggerAlias.Fatalf method")
+		mmFatalf.mock.t.Fatalf("Some expectations are already set for the loggerAlias.Fatalf method")
 	}
 
 	mmFatalf.mock.funcFatalf = f
@@ -935,7 +935,7 @@ func (mmFatalf *mLoggerAliasMockFatalf) Set(f func(message string, args ...any))
 	return mmFatalf.mock
 }
 
-// When sets expectation for the LoggerAlias.Fatalf which will trigger the result defined by the following
+// When sets expectation for the loggerAlias.Fatalf which will trigger the result defined by the following
 // Then helper
 func (mmFatalf *mLoggerAliasMockFatalf) When(message string, args ...any) *LoggerAliasMockFatalfExpectation {
 	if mmFatalf.mock.funcFatalf != nil {
@@ -951,13 +951,13 @@ func (mmFatalf *mLoggerAliasMockFatalf) When(message string, args ...any) *Logge
 	return expectation
 }
 
-// Then sets up LoggerAlias.Fatalf return parameters for the expectation previously defined by the When method
+// Then sets up loggerAlias.Fatalf return parameters for the expectation previously defined by the When method
 
 func (e *LoggerAliasMockFatalfExpectation) Then() *LoggerAliasMock {
 	return e.mock
 }
 
-// Times sets number of times LoggerAlias.Fatalf should be invoked
+// Times sets number of times loggerAlias.Fatalf should be invoked
 func (mmFatalf *mLoggerAliasMockFatalf) Times(n uint64) *mLoggerAliasMockFatalf {
 	if n == 0 {
 		mmFatalf.mock.t.Fatalf("Times of LoggerAliasMock.Fatalf mock can not be zero")
@@ -978,7 +978,7 @@ func (mmFatalf *mLoggerAliasMockFatalf) invocationsDone() bool {
 	return totalInvocations > 0 && (expectedInvocations == 0 || expectedInvocations == totalInvocations)
 }
 
-// Fatalf implements LoggerAlias
+// Fatalf implements loggerAlias
 func (mmFatalf *LoggerAliasMock) Fatalf(message string, args ...any) {
 	mm_atomic.AddUint64(&mmFatalf.beforeFatalfCounter, 1)
 	defer mm_atomic.AddUint64(&mmFatalf.afterFatalfCounter, 1)
@@ -1119,7 +1119,7 @@ type mLoggerAliasMockInfof struct {
 	expectedInvocationsOrigin string
 }
 
-// LoggerAliasMockInfofExpectation specifies expectation struct of the LoggerAlias.Infof
+// LoggerAliasMockInfofExpectation specifies expectation struct of the loggerAlias.Infof
 type LoggerAliasMockInfofExpectation struct {
 	mock               *LoggerAliasMock
 	params             *LoggerAliasMockInfofParams
@@ -1130,19 +1130,19 @@ type LoggerAliasMockInfofExpectation struct {
 	Counter      uint64
 }
 
-// LoggerAliasMockInfofParams contains parameters of the LoggerAlias.Infof
+// LoggerAliasMockInfofParams contains parameters of the loggerAlias.Infof
 type LoggerAliasMockInfofParams struct {
 	message string
 	args    []any
 }
 
-// LoggerAliasMockInfofParamPtrs contains pointers to parameters of the LoggerAlias.Infof
+// LoggerAliasMockInfofParamPtrs contains pointers to parameters of the loggerAlias.Infof
 type LoggerAliasMockInfofParamPtrs struct {
 	message *string
 	args    *[]any
 }
 
-// LoggerAliasMockInfofOrigins contains origins of expectations of the LoggerAlias.Infof
+// LoggerAliasMockInfofOrigins contains origins of expectations of the loggerAlias.Infof
 type LoggerAliasMockInfofExpectationOrigins struct {
 	origin        string
 	originMessage string
@@ -1159,7 +1159,7 @@ func (mmInfof *mLoggerAliasMockInfof) Optional() *mLoggerAliasMockInfof {
 	return mmInfof
 }
 
-// Expect sets up expected params for LoggerAlias.Infof
+// Expect sets up expected params for loggerAlias.Infof
 func (mmInfof *mLoggerAliasMockInfof) Expect(message string, args ...any) *mLoggerAliasMockInfof {
 	if mmInfof.mock.funcInfof != nil {
 		mmInfof.mock.t.Fatalf("LoggerAliasMock.Infof mock is already set by Set")
@@ -1184,7 +1184,7 @@ func (mmInfof *mLoggerAliasMockInfof) Expect(message string, args ...any) *mLogg
 	return mmInfof
 }
 
-// ExpectMessageParam1 sets up expected param message for LoggerAlias.Infof
+// ExpectMessageParam1 sets up expected param message for loggerAlias.Infof
 func (mmInfof *mLoggerAliasMockInfof) ExpectMessageParam1(message string) *mLoggerAliasMockInfof {
 	if mmInfof.mock.funcInfof != nil {
 		mmInfof.mock.t.Fatalf("LoggerAliasMock.Infof mock is already set by Set")
@@ -1207,7 +1207,7 @@ func (mmInfof *mLoggerAliasMockInfof) ExpectMessageParam1(message string) *mLogg
 	return mmInfof
 }
 
-// ExpectArgsParam2 sets up expected param args for LoggerAlias.Infof
+// ExpectArgsParam2 sets up expected param args for loggerAlias.Infof
 func (mmInfof *mLoggerAliasMockInfof) ExpectArgsParam2(args ...any) *mLoggerAliasMockInfof {
 	if mmInfof.mock.funcInfof != nil {
 		mmInfof.mock.t.Fatalf("LoggerAliasMock.Infof mock is already set by Set")
@@ -1230,7 +1230,7 @@ func (mmInfof *mLoggerAliasMockInfof) ExpectArgsParam2(args ...any) *mLoggerAlia
 	return mmInfof
 }
 
-// Inspect accepts an inspector function that has same arguments as the LoggerAlias.Infof
+// Inspect accepts an inspector function that has same arguments as the loggerAlias.Infof
 func (mmInfof *mLoggerAliasMockInfof) Inspect(f func(message string, args ...any)) *mLoggerAliasMockInfof {
 	if mmInfof.mock.inspectFuncInfof != nil {
 		mmInfof.mock.t.Fatalf("Inspect function is already set for LoggerAliasMock.Infof")
@@ -1241,7 +1241,7 @@ func (mmInfof *mLoggerAliasMockInfof) Inspect(f func(message string, args ...any
 	return mmInfof
 }
 
-// Return sets up results that will be returned by LoggerAlias.Infof
+// Return sets up results that will be returned by loggerAlias.Infof
 func (mmInfof *mLoggerAliasMockInfof) Return() *LoggerAliasMock {
 	if mmInfof.mock.funcInfof != nil {
 		mmInfof.mock.t.Fatalf("LoggerAliasMock.Infof mock is already set by Set")
@@ -1255,14 +1255,14 @@ func (mmInfof *mLoggerAliasMockInfof) Return() *LoggerAliasMock {
 	return mmInfof.mock
 }
 
-// Set uses given function f to mock the LoggerAlias.Infof method
+// Set uses given function f to mock the loggerAlias.Infof method
 func (mmInfof *mLoggerAliasMockInfof) Set(f func(message string, args ...any)) *LoggerAliasMock {
 	if mmInfof.defaultExpectation != nil {
-		mmInfof.mock.t.Fatalf("Default expectation is already set for the LoggerAlias.Infof method")
+		mmInfof.mock.t.Fatalf("Default expectation is already set for the loggerAlias.Infof method")
 	}
 
 	if len(mmInfof.expectations) > 0 {
-		mmInfof.mock.t.Fatalf("Some expectations are already set for the LoggerAlias.Infof method")
+		mmInfof.mock.t.Fatalf("Some expectations are already set for the loggerAlias.Infof method")
 	}
 
 	mmInfof.mock.funcInfof = f
@@ -1270,7 +1270,7 @@ func (mmInfof *mLoggerAliasMockInfof) Set(f func(message string, args ...any)) *
 	return mmInfof.mock
 }
 
-// When sets expectation for the LoggerAlias.Infof which will trigger the result defined by the following
+// When sets expectation for the loggerAlias.Infof which will trigger the result defined by the following
 // Then helper
 func (mmInfof *mLoggerAliasMockInfof) When(message string, args ...any) *LoggerAliasMockInfofExpectation {
 	if mmInfof.mock.funcInfof != nil {
@@ -1286,13 +1286,13 @@ func (mmInfof *mLoggerAliasMockInfof) When(message string, args ...any) *LoggerA
 	return expectation
 }
 
-// Then sets up LoggerAlias.Infof return parameters for the expectation previously defined by the When method
+// Then sets up loggerAlias.Infof return parameters for the expectation previously defined by the When method
 
 func (e *LoggerAliasMockInfofExpectation) Then() *LoggerAliasMock {
 	return e.mock
 }
 
-// Times sets number of times LoggerAlias.Infof should be invoked
+// Times sets number of times loggerAlias.Infof should be invoked
 func (mmInfof *mLoggerAliasMockInfof) Times(n uint64) *mLoggerAliasMockInfof {
 	if n == 0 {
 		mmInfof.mock.t.Fatalf("Times of LoggerAliasMock.Infof mock can not be zero")
@@ -1313,7 +1313,7 @@ func (mmInfof *mLoggerAliasMockInfof) invocationsDone() bool {
 	return totalInvocations > 0 && (expectedInvocations == 0 || expectedInvocations == totalInvocations)
 }
 
-// Infof implements LoggerAlias
+// Infof implements loggerAlias
 func (mmInfof *LoggerAliasMock) Infof(message string, args ...any) {
 	mm_atomic.AddUint64(&mmInfof.beforeInfofCounter, 1)
 	defer mm_atomic.AddUint64(&mmInfof.afterInfofCounter, 1)
@@ -1451,7 +1451,7 @@ type mLoggerAliasMockSync struct {
 	expectedInvocationsOrigin string
 }
 
-// LoggerAliasMockSyncExpectation specifies expectation struct of the LoggerAlias.Sync
+// LoggerAliasMockSyncExpectation specifies expectation struct of the loggerAlias.Sync
 type LoggerAliasMockSyncExpectation struct {
 	mock *LoggerAliasMock
 
@@ -1460,7 +1460,7 @@ type LoggerAliasMockSyncExpectation struct {
 	Counter      uint64
 }
 
-// LoggerAliasMockSyncResults contains results of the LoggerAlias.Sync
+// LoggerAliasMockSyncResults contains results of the loggerAlias.Sync
 type LoggerAliasMockSyncResults struct {
 	err error
 }
@@ -1475,7 +1475,7 @@ func (mmSync *mLoggerAliasMockSync) Optional() *mLoggerAliasMockSync {
 	return mmSync
 }
 
-// Expect sets up expected params for LoggerAlias.Sync
+// Expect sets up expected params for loggerAlias.Sync
 func (mmSync *mLoggerAliasMockSync) Expect() *mLoggerAliasMockSync {
 	if mmSync.mock.funcSync != nil {
 		mmSync.mock.t.Fatalf("LoggerAliasMock.Sync mock is already set by Set")
@@ -1488,7 +1488,7 @@ func (mmSync *mLoggerAliasMockSync) Expect() *mLoggerAliasMockSync {
 	return mmSync
 }
 
-// Inspect accepts an inspector function that has same arguments as the LoggerAlias.Sync
+// Inspect accepts an inspector function that has same arguments as the loggerAlias.Sync
 func (mmSync *mLoggerAliasMockSync) Inspect(f func()) *mLoggerAliasMockSync {
 	if mmSync.mock.inspectFuncSync != nil {
 		mmSync.mock.t.Fatalf("Inspect function is already set for LoggerAliasMock.Sync")
@@ -1499,7 +1499,7 @@ func (mmSync *mLoggerAliasMockSync) Inspect(f func()) *mLoggerAliasMockSync {
 	return mmSync
 }
 
-// Return sets up results that will be returned by LoggerAlias.Sync
+// Return sets up results that will be returned by loggerAlias.Sync
 func (mmSync *mLoggerAliasMockSync) Return(err error) *LoggerAliasMock {
 	if mmSync.mock.funcSync != nil {
 		mmSync.mock.t.Fatalf("LoggerAliasMock.Sync mock is already set by Set")
@@ -1513,14 +1513,14 @@ func (mmSync *mLoggerAliasMockSync) Return(err error) *LoggerAliasMock {
 	return mmSync.mock
 }
 
-// Set uses given function f to mock the LoggerAlias.Sync method
+// Set uses given function f to mock the loggerAlias.Sync method
 func (mmSync *mLoggerAliasMockSync) Set(f func() (err error)) *LoggerAliasMock {
 	if mmSync.defaultExpectation != nil {
-		mmSync.mock.t.Fatalf("Default expectation is already set for the LoggerAlias.Sync method")
+		mmSync.mock.t.Fatalf("Default expectation is already set for the loggerAlias.Sync method")
 	}
 
 	if len(mmSync.expectations) > 0 {
-		mmSync.mock.t.Fatalf("Some expectations are already set for the LoggerAlias.Sync method")
+		mmSync.mock.t.Fatalf("Some expectations are already set for the loggerAlias.Sync method")
 	}
 
 	mmSync.mock.funcSync = f
@@ -1528,7 +1528,7 @@ func (mmSync *mLoggerAliasMockSync) Set(f func() (err error)) *LoggerAliasMock {
 	return mmSync.mock
 }
 
-// Times sets number of times LoggerAlias.Sync should be invoked
+// Times sets number of times loggerAlias.Sync should be invoked
 func (mmSync *mLoggerAliasMockSync) Times(n uint64) *mLoggerAliasMockSync {
 	if n == 0 {
 		mmSync.mock.t.Fatalf("Times of LoggerAliasMock.Sync mock can not be zero")
@@ -1549,7 +1549,7 @@ func (mmSync *mLoggerAliasMockSync) invocationsDone() bool {
 	return totalInvocations > 0 && (expectedInvocations == 0 || expectedInvocations == totalInvocations)
 }
 
-// Sync implements LoggerAlias
+// Sync implements loggerAlias
 func (mmSync *LoggerAliasMock) Sync() (err error) {
 	mm_atomic.AddUint64(&mmSync.beforeSyncCounter, 1)
 	defer mm_atomic.AddUint64(&mmSync.afterSyncCounter, 1)
@@ -1640,7 +1640,7 @@ type mLoggerAliasMockWarnf struct {
 	expectedInvocationsOrigin string
 }
 
-// LoggerAliasMockWarnfExpectation specifies expectation struct of the LoggerAlias.Warnf
+// LoggerAliasMockWarnfExpectation specifies expectation struct of the loggerAlias.Warnf
 type LoggerAliasMockWarnfExpectation struct {
 	mock               *LoggerAliasMock
 	params             *LoggerAliasMockWarnfParams
@@ -1651,19 +1651,19 @@ type LoggerAliasMockWarnfExpectation struct {
 	Counter      uint64
 }
 
-// LoggerAliasMockWarnfParams contains parameters of the LoggerAlias.Warnf
+// LoggerAliasMockWarnfParams contains parameters of the loggerAlias.Warnf
 type LoggerAliasMockWarnfParams struct {
 	message string
 	args    []any
 }
 
-// LoggerAliasMockWarnfParamPtrs contains pointers to parameters of the LoggerAlias.Warnf
+// LoggerAliasMockWarnfParamPtrs contains pointers to parameters of the loggerAlias.Warnf
 type LoggerAliasMockWarnfParamPtrs struct {
 	message *string
 	args    *[]any
 }
 
-// LoggerAliasMockWarnfOrigins contains origins of expectations of the LoggerAlias.Warnf
+// LoggerAliasMockWarnfOrigins contains origins of expectations of the loggerAlias.Warnf
 type LoggerAliasMockWarnfExpectationOrigins struct {
 	origin        string
 	originMessage string
@@ -1680,7 +1680,7 @@ func (mmWarnf *mLoggerAliasMockWarnf) Optional() *mLoggerAliasMockWarnf {
 	return mmWarnf
 }
 
-// Expect sets up expected params for LoggerAlias.Warnf
+// Expect sets up expected params for loggerAlias.Warnf
 func (mmWarnf *mLoggerAliasMockWarnf) Expect(message string, args ...any) *mLoggerAliasMockWarnf {
 	if mmWarnf.mock.funcWarnf != nil {
 		mmWarnf.mock.t.Fatalf("LoggerAliasMock.Warnf mock is already set by Set")
@@ -1705,7 +1705,7 @@ func (mmWarnf *mLoggerAliasMockWarnf) Expect(message string, args ...any) *mLogg
 	return mmWarnf
 }
 
-// ExpectMessageParam1 sets up expected param message for LoggerAlias.Warnf
+// ExpectMessageParam1 sets up expected param message for loggerAlias.Warnf
 func (mmWarnf *mLoggerAliasMockWarnf) ExpectMessageParam1(message string) *mLoggerAliasMockWarnf {
 	if mmWarnf.mock.funcWarnf != nil {
 		mmWarnf.mock.t.Fatalf("LoggerAliasMock.Warnf mock is already set by Set")
@@ -1728,7 +1728,7 @@ func (mmWarnf *mLoggerAliasMockWarnf) ExpectMessageParam1(message string) *mLogg
 	return mmWarnf
 }
 
-// ExpectArgsParam2 sets up expected param args for LoggerAlias.Warnf
+// ExpectArgsParam2 sets up expected param args for loggerAlias.Warnf
 func (mmWarnf *mLoggerAliasMockWarnf) ExpectArgsParam2(args ...any) *mLoggerAliasMockWarnf {
 	if mmWarnf.mock.funcWarnf != nil {
 		mmWarnf.mock.t.Fatalf("LoggerAliasMock.Warnf mock is already set by Set")
@@ -1751,7 +1751,7 @@ func (mmWarnf *mLoggerAliasMockWarnf) ExpectArgsParam2(args ...any) *mLoggerAlia
 	return mmWarnf
 }
 
-// Inspect accepts an inspector function that has same arguments as the LoggerAlias.Warnf
+// Inspect accepts an inspector function that has same arguments as the loggerAlias.Warnf
 func (mmWarnf *mLoggerAliasMockWarnf) Inspect(f func(message string, args ...any)) *mLoggerAliasMockWarnf {
 	if mmWarnf.mock.inspectFuncWarnf != nil {
 		mmWarnf.mock.t.Fatalf("Inspect function is already set for LoggerAliasMock.Warnf")
@@ -1762,7 +1762,7 @@ func (mmWarnf *mLoggerAliasMockWarnf) Inspect(f func(message string, args ...any
 	return mmWarnf
 }
 
-// Return sets up results that will be returned by LoggerAlias.Warnf
+// Return sets up results that will be returned by loggerAlias.Warnf
 func (mmWarnf *mLoggerAliasMockWarnf) Return() *LoggerAliasMock {
 	if mmWarnf.mock.funcWarnf != nil {
 		mmWarnf.mock.t.Fatalf("LoggerAliasMock.Warnf mock is already set by Set")
@@ -1776,14 +1776,14 @@ func (mmWarnf *mLoggerAliasMockWarnf) Return() *LoggerAliasMock {
 	return mmWarnf.mock
 }
 
-// Set uses given function f to mock the LoggerAlias.Warnf method
+// Set uses given function f to mock the loggerAlias.Warnf method
 func (mmWarnf *mLoggerAliasMockWarnf) Set(f func(message string, args ...any)) *LoggerAliasMock {
 	if mmWarnf.defaultExpectation != nil {
-		mmWarnf.mock.t.Fatalf("Default expectation is already set for the LoggerAlias.Warnf method")
+		mmWarnf.mock.t.Fatalf("Default expectation is already set for the loggerAlias.Warnf method")
 	}
 
 	if len(mmWarnf.expectations) > 0 {
-		mmWarnf.mock.t.Fatalf("Some expectations are already set for the LoggerAlias.Warnf method")
+		mmWarnf.mock.t.Fatalf("Some expectations are already set for the loggerAlias.Warnf method")
 	}
 
 	mmWarnf.mock.funcWarnf = f
@@ -1791,7 +1791,7 @@ func (mmWarnf *mLoggerAliasMockWarnf) Set(f func(message string, args ...any)) *
 	return mmWarnf.mock
 }
 
-// When sets expectation for the LoggerAlias.Warnf which will trigger the result defined by the following
+// When sets expectation for the loggerAlias.Warnf which will trigger the result defined by the following
 // Then helper
 func (mmWarnf *mLoggerAliasMockWarnf) When(message string, args ...any) *LoggerAliasMockWarnfExpectation {
 	if mmWarnf.mock.funcWarnf != nil {
@@ -1807,13 +1807,13 @@ func (mmWarnf *mLoggerAliasMockWarnf) When(message string, args ...any) *LoggerA
 	return expectation
 }
 
-// Then sets up LoggerAlias.Warnf return parameters for the expectation previously defined by the When method
+// Then sets up loggerAlias.Warnf return parameters for the expectation previously defined by the When method
 
 func (e *LoggerAliasMockWarnfExpectation) Then() *LoggerAliasMock {
 	return e.mock
 }
 
-// Times sets number of times LoggerAlias.Warnf should be invoked
+// Times sets number of times loggerAlias.Warnf should be invoked
 func (mmWarnf *mLoggerAliasMockWarnf) Times(n uint64) *mLoggerAliasMockWarnf {
 	if n == 0 {
 		mmWarnf.mock.t.Fatalf("Times of LoggerAliasMock.Warnf mock can not be zero")
@@ -1834,7 +1834,7 @@ func (mmWarnf *mLoggerAliasMockWarnf) invocationsDone() bool {
 	return totalInvocations > 0 && (expectedInvocations == 0 || expectedInvocations == totalInvocations)
 }
 
-// Warnf implements LoggerAlias
+// Warnf implements loggerAlias
 func (mmWarnf *LoggerAliasMock) Warnf(message string, args ...any) {
 	mm_atomic.AddUint64(&mmWarnf.beforeWarnfCounter, 1)
 	defer mm_atomic.AddUint64(&mmWarnf.afterWarnfCounter, 1)
@@ -1975,7 +1975,7 @@ type mLoggerAliasMockWithf struct {
 	expectedInvocationsOrigin string
 }
 
-// LoggerAliasMockWithfExpectation specifies expectation struct of the LoggerAlias.Withf
+// LoggerAliasMockWithfExpectation specifies expectation struct of the loggerAlias.Withf
 type LoggerAliasMockWithfExpectation struct {
 	mock               *LoggerAliasMock
 	params             *LoggerAliasMockWithfParams
@@ -1986,24 +1986,24 @@ type LoggerAliasMockWithfExpectation struct {
 	Counter            uint64
 }
 
-// LoggerAliasMockWithfParams contains parameters of the LoggerAlias.Withf
+// LoggerAliasMockWithfParams contains parameters of the loggerAlias.Withf
 type LoggerAliasMockWithfParams struct {
 	key   logger.Field
 	value any
 }
 
-// LoggerAliasMockWithfParamPtrs contains pointers to parameters of the LoggerAlias.Withf
+// LoggerAliasMockWithfParamPtrs contains pointers to parameters of the loggerAlias.Withf
 type LoggerAliasMockWithfParamPtrs struct {
 	key   *logger.Field
 	value *any
 }
 
-// LoggerAliasMockWithfResults contains results of the LoggerAlias.Withf
+// LoggerAliasMockWithfResults contains results of the loggerAlias.Withf
 type LoggerAliasMockWithfResults struct {
 	l1 logger.Logger
 }
 
-// LoggerAliasMockWithfOrigins contains origins of expectations of the LoggerAlias.Withf
+// LoggerAliasMockWithfOrigins contains origins of expectations of the loggerAlias.Withf
 type LoggerAliasMockWithfExpectationOrigins struct {
 	origin      string
 	originKey   string
@@ -2020,7 +2020,7 @@ func (mmWithf *mLoggerAliasMockWithf) Optional() *mLoggerAliasMockWithf {
 	return mmWithf
 }
 
-// Expect sets up expected params for LoggerAlias.Withf
+// Expect sets up expected params for loggerAlias.Withf
 func (mmWithf *mLoggerAliasMockWithf) Expect(key logger.Field, value any) *mLoggerAliasMockWithf {
 	if mmWithf.mock.funcWithf != nil {
 		mmWithf.mock.t.Fatalf("LoggerAliasMock.Withf mock is already set by Set")
@@ -2045,7 +2045,7 @@ func (mmWithf *mLoggerAliasMockWithf) Expect(key logger.Field, value any) *mLogg
 	return mmWithf
 }
 
-// ExpectKeyParam1 sets up expected param key for LoggerAlias.Withf
+// ExpectKeyParam1 sets up expected param key for loggerAlias.Withf
 func (mmWithf *mLoggerAliasMockWithf) ExpectKeyParam1(key logger.Field) *mLoggerAliasMockWithf {
 	if mmWithf.mock.funcWithf != nil {
 		mmWithf.mock.t.Fatalf("LoggerAliasMock.Withf mock is already set by Set")
@@ -2068,7 +2068,7 @@ func (mmWithf *mLoggerAliasMockWithf) ExpectKeyParam1(key logger.Field) *mLogger
 	return mmWithf
 }
 
-// ExpectValueParam2 sets up expected param value for LoggerAlias.Withf
+// ExpectValueParam2 sets up expected param value for loggerAlias.Withf
 func (mmWithf *mLoggerAliasMockWithf) ExpectValueParam2(value any) *mLoggerAliasMockWithf {
 	if mmWithf.mock.funcWithf != nil {
 		mmWithf.mock.t.Fatalf("LoggerAliasMock.Withf mock is already set by Set")
@@ -2091,7 +2091,7 @@ func (mmWithf *mLoggerAliasMockWithf) ExpectValueParam2(value any) *mLoggerAlias
 	return mmWithf
 }
 
-// Inspect accepts an inspector function that has same arguments as the LoggerAlias.Withf
+// Inspect accepts an inspector function that has same arguments as the loggerAlias.Withf
 func (mmWithf *mLoggerAliasMockWithf) Inspect(f func(key logger.Field, value any)) *mLoggerAliasMockWithf {
 	if mmWithf.mock.inspectFuncWithf != nil {
 		mmWithf.mock.t.Fatalf("Inspect function is already set for LoggerAliasMock.Withf")
@@ -2102,7 +2102,7 @@ func (mmWithf *mLoggerAliasMockWithf) Inspect(f func(key logger.Field, value any
 	return mmWithf
 }
 
-// Return sets up results that will be returned by LoggerAlias.Withf
+// Return sets up results that will be returned by loggerAlias.Withf
 func (mmWithf *mLoggerAliasMockWithf) Return(l1 logger.Logger) *LoggerAliasMock {
 	if mmWithf.mock.funcWithf != nil {
 		mmWithf.mock.t.Fatalf("LoggerAliasMock.Withf mock is already set by Set")
@@ -2116,14 +2116,14 @@ func (mmWithf *mLoggerAliasMockWithf) Return(l1 logger.Logger) *LoggerAliasMock 
 	return mmWithf.mock
 }
 
-// Set uses given function f to mock the LoggerAlias.Withf method
+// Set uses given function f to mock the loggerAlias.Withf method
 func (mmWithf *mLoggerAliasMockWithf) Set(f func(key logger.Field, value any) (l1 logger.Logger)) *LoggerAliasMock {
 	if mmWithf.defaultExpectation != nil {
-		mmWithf.mock.t.Fatalf("Default expectation is already set for the LoggerAlias.Withf method")
+		mmWithf.mock.t.Fatalf("Default expectation is already set for the loggerAlias.Withf method")
 	}
 
 	if len(mmWithf.expectations) > 0 {
-		mmWithf.mock.t.Fatalf("Some expectations are already set for the LoggerAlias.Withf method")
+		mmWithf.mock.t.Fatalf("Some expectations are already set for the loggerAlias.Withf method")
 	}
 
 	mmWithf.mock.funcWithf = f
@@ -2131,7 +2131,7 @@ func (mmWithf *mLoggerAliasMockWithf) Set(f func(key logger.Field, value any) (l
 	return mmWithf.mock
 }
 
-// When sets expectation for the LoggerAlias.Withf which will trigger the result defined by the following
+// When sets expectation for the loggerAlias.Withf which will trigger the result defined by the following
 // Then helper
 func (mmWithf *mLoggerAliasMockWithf) When(key logger.Field, value any) *LoggerAliasMockWithfExpectation {
 	if mmWithf.mock.funcWithf != nil {
@@ -2147,13 +2147,13 @@ func (mmWithf *mLoggerAliasMockWithf) When(key logger.Field, value any) *LoggerA
 	return expectation
 }
 
-// Then sets up LoggerAlias.Withf return parameters for the expectation previously defined by the When method
+// Then sets up loggerAlias.Withf return parameters for the expectation previously defined by the When method
 func (e *LoggerAliasMockWithfExpectation) Then(l1 logger.Logger) *LoggerAliasMock {
 	e.results = &LoggerAliasMockWithfResults{l1}
 	return e.mock
 }
 
-// Times sets number of times LoggerAlias.Withf should be invoked
+// Times sets number of times loggerAlias.Withf should be invoked
 func (mmWithf *mLoggerAliasMockWithf) Times(n uint64) *mLoggerAliasMockWithf {
 	if n == 0 {
 		mmWithf.mock.t.Fatalf("Times of LoggerAliasMock.Withf mock can not be zero")
@@ -2174,7 +2174,7 @@ func (mmWithf *mLoggerAliasMockWithf) invocationsDone() bool {
 	return totalInvocations > 0 && (expectedInvocations == 0 || expectedInvocations == totalInvocations)
 }
 
-// Withf implements LoggerAlias
+// Withf implements loggerAlias
 func (mmWithf *LoggerAliasMock) Withf(key logger.Field, value any) (l1 logger.Logger) {
 	mm_atomic.AddUint64(&mmWithf.beforeWithfCounter, 1)
 	defer mm_atomic.AddUint64(&mmWithf.afterWithfCounter, 1)

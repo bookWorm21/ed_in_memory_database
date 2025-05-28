@@ -1,4 +1,4 @@
-package parser
+package compute
 
 import (
 	"errors"
@@ -8,16 +8,8 @@ import (
 	"ed_in_memory_database/internal/entity"
 )
 
-var (
-	queryToCommand = map[string]entity.CommandType{
-		"GET": entity.CommandTypeGet,
-		"SET": entity.CommandTypeSet,
-		"DEL": entity.CommandTypeDelete,
-	}
-)
-
 // ParseQuery -
-func ParseQuery(rawQuery string) (entity.Command, error) {
+func (c Compute) ParseQuery(rawQuery string) (entity.Command, error) {
 	tokens := strings.Fields(rawQuery)
 
 	if len(tokens) == 0 {

@@ -7,6 +7,7 @@ import (
 	"ed_in_memory_database/internal/entity"
 )
 
+// Execute -
 func (d Database) Execute(ctx context.Context, rawQuery string) (ExecuteResponse, error) {
 	command, err := d.compute.ParseQuery(rawQuery)
 	if err != nil {

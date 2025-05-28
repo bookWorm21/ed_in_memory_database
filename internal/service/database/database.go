@@ -21,12 +21,14 @@ type (
 	}
 )
 
+// Database -
 type Database struct {
 	storage storageLayer
 	compute computeLayer
 	logger  logger.Logger
 }
 
+// MakeDatabase -
 func MakeDatabase(storage storageLayer, compute computeLayer, logger logger.Logger) (Database, error) {
 	if storage == nil {
 		return Database{}, errors.New("database storage is nil")
