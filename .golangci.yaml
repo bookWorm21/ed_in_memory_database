@@ -1,0 +1,88 @@
+# More info on config here: https://golangci-lint.run/usage/configuration/#config-file
+run:
+  timeout: 10m
+  issues-exit-code: 1
+  tests: true
+  allow-parallel-runners: true
+  go: '1.23'
+
+output:
+  formats:
+    - format: colored-line-number
+      path: stdout
+  print-issued-lines: true
+  print-linter-name: true
+
+linters-settings:
+  govet:
+    enable:
+      - shadow
+  dupl:
+    threshold: 100
+  goconst:
+    min-len:         2
+    min-occurrences: 2
+  gocyclo:
+    min-complexity: 10
+  gocognit:
+    min-complexity: 10
+  mnd:
+    ignored-numbers:
+      - '2'
+      - '10'
+      - '64'
+  nakedret:
+    max-func-lines: 25
+  exhaustive:
+    default-signifies-exhaustive: true
+
+linters:
+  disable-all: true
+  enable:
+    # - dupl - it's very slow, enable if you really know why you need it
+    - errcheck
+    - goconst
+    - goimports
+    - gosec
+    - govet
+    - ineffassign
+    - gosimple
+    - staticcheck
+    - revive
+    - typecheck
+    - unused # will be used insted of varcheck + deadcode + structcheck. More info https://github.com/golangci/golangci-lint/issues/1841
+    - errname
+    - mnd
+    - unconvert
+    - copyloopvar
+    # - gocyclo - Медленный линтер, но может помочь при рефакторинге
+    # - gocognit - Медленный линтер, но может помочь при рефакторинге
+    - bodyclose
+    - gofmt
+    - goprintffuncname
+    - nakedret
+    - nestif
+    - unparam
+    - misspell
+    - exhaustive
+    - rowserrcheck
+    - wastedassign
+    - mirror
+    - nilnil
+    - nosprintfhostport
+issues:
+  exclude-use-default: false
+  exclude:
+    - should have a package comment
+    - don't use an underscore in package name
+  exclude-dirs:
+    - bin
+    - vendor
+    - var
+    - tmp
+    - .cache
+  exclude-files:
+    - \.pb\.go$
+    - \.pb\.gw\.go$
+    - \.pb\.scratch\.go$
+    - \.pb\.goclay\.go$
